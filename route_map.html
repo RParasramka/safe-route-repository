@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c5f0b1267cc39708470299fd1461363f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c5f0b1267cc39708470299fd1461363f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c5f0b1267cc39708470299fd1461363f = L.map(
+                "map_c5f0b1267cc39708470299fd1461363f",
+                {
+                    center: [52.76828075, -1.20688715],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_c5f0b1267cc39708470299fd1461363f);
+
+            
+
+        
+    
+            var tile_layer_3246fe56a0cad30daac72bb664c5ae7e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3246fe56a0cad30daac72bb664c5ae7e.addTo(map_c5f0b1267cc39708470299fd1461363f);
+        
+    
+            map_c5f0b1267cc39708470299fd1461363f.fitBounds(
+                [[52.7664622, -1.2098387], [52.7700993, -1.2039356]],
+                {}
+            );
+        
+    
+        function geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "red", "fillColor": "red", "fillOpacity": 0.5, "weight": 2};
+            }
+        }
+        function geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"fillOpacity": 0.75};
+            }
+        }
+        function geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_pointToLayer(feature, latlng) {
+            var opts = {
+  "stroke": true,
+  "color": "#3388ff",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 2,
+};
+            
+            let style = geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507 = L.geoJson(null, {
+                onEachFeature: geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_onEachFeature,
+            
+                style: geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_styler,
+                pointToLayer: geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_add (data) {
+            geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507
+                .addData(data);
+        }
+            geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507_add({"bbox": [-1.2098387, 52.7664622, -1.2039356, 52.7700993], "features": [{"bbox": [-1.2044127, 52.7664622, -1.2039356, 52.7667305], "geometry": {"coordinates": [[-1.2039356, 52.7667305], [-1.2044127, 52.7664622]], "type": "LineString"}, "id": "(2088430047, 7804304324, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "service", "lanes": null, "length": 43.8225136879986, "maxspeed": null, "name": null, "oneway": false, "osmid": "198742944", "ref": null, "reversed": "False", "service": null}, "type": "Feature"}, {"bbox": [-1.2047836, 52.7664622, -1.2044127, 52.7667028], "geometry": {"coordinates": [[-1.2044127, 52.7664622], [-1.2047836, 52.7667028]], "type": "LineString"}, "id": "(7804304324, 1364372282, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "residential", "lanes": "2", "length": 36.585013700010464, "maxspeed": null, "name": "Victoria Street", "oneway": false, "osmid": "1301313173", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2051558, 52.7667028, -1.2047836, 52.7669716], "geometry": {"coordinates": [[-1.2047836, 52.7667028], [-1.2051558, 52.7669716]], "type": "LineString"}, "id": "(1364372282, 25642900, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "residential", "lanes": "2", "length": 38.99286553110761, "maxspeed": null, "name": "Victoria Street", "oneway": false, "osmid": "1301313173", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2055891, 52.7669716, -1.2051558, 52.7672765], "geometry": {"coordinates": [[-1.2051558, 52.7669716], [-1.2055891, 52.7672765]], "type": "LineString"}, "id": "(25642900, 25642899, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "residential", "lanes": null, "length": 44.71335766480575, "maxspeed": null, "name": "Victoria Street", "oneway": false, "osmid": "4269749", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2065973, 52.7672765, -1.2055891, 52.7679407], "geometry": {"coordinates": [[-1.2055891, 52.7672765], [-1.2065973, 52.7679407]], "type": "LineString"}, "id": "(25642899, 1308246336, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "residential", "lanes": null, "length": 100.27766795365228, "maxspeed": null, "name": "Victoria Street", "oneway": false, "osmid": "4269749", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2069459, 52.7679407, -1.2065973, 52.7681588], "geometry": {"coordinates": [[-1.2065973, 52.7679407], [-1.2069459, 52.7681588]], "type": "LineString"}, "id": "(1308246336, 1465413571, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "residential", "lanes": null, "length": 33.73704233444219, "maxspeed": null, "name": "Victoria Street", "oneway": false, "osmid": "4269749", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2073099, 52.7681588, -1.2069459, 52.7683721], "geometry": {"coordinates": [[-1.2069459, 52.7681588], [-1.2073099, 52.7683721]], "type": "LineString"}, "id": "(1465413571, 25642898, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "residential", "lanes": null, "length": 34.0918003241065, "maxspeed": null, "name": "Victoria Street", "oneway": false, "osmid": "4269749", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2075386, 52.7682206, -1.2073099, 52.7683721], "geometry": {"coordinates": [[-1.2073099, 52.7683721], [-1.2073787, 52.7683304], [-1.2074259, 52.7682999], [-1.2075386, 52.7682206]], "type": "LineString"}, "id": "(25642898, 14109080, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "secondary", "lanes": null, "length": 22.827132223411763, "maxspeed": "30 mph", "name": "Bedford Street", "oneway": false, "osmid": "224355694", "ref": "B5350", "reversed": "False", "service": null}, "type": "Feature"}, {"bbox": [-1.2081932, 52.7682206, -1.2075386, 52.7684652], "geometry": {"coordinates": [[-1.2075386, 52.7682206], [-1.2078369, 52.7683744], [-1.208031, 52.7684025], [-1.2081932, 52.7684652]], "type": "LineString"}, "id": "(14109080, 1364398563, 0)", "properties": {"__folium_color": "red", "access": "no", "bridge": null, "highway": "service", "lanes": null, "length": 52.74379653644333, "maxspeed": null, "name": null, "oneway": false, "osmid": "76729461", "ref": null, "reversed": "True", "service": "alley"}, "type": "Feature"}, {"bbox": [-1.2081932, 52.7684652, -1.2081157, 52.7685293], "geometry": {"coordinates": [[-1.2081932, 52.7684652], [-1.2081157, 52.7685293]], "type": "LineString"}, "id": "(1364398563, 12269208844, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "secondary", "lanes": "3", "length": 8.831099545510245, "maxspeed": null, "name": "Ward\u0027s End", "oneway": false, "osmid": "3986613", "ref": "B5350", "reversed": "False", "service": null}, "type": "Feature"}, {"bbox": [-1.2081157, 52.7685293, -1.2080845, 52.7685551], "geometry": {"coordinates": [[-1.2081157, 52.7685293], [-1.2080845, 52.7685551]], "type": "LineString"}, "id": "(12269208844, 1941157941, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "secondary", "lanes": "3", "length": 3.554742126646524, "maxspeed": null, "name": "Ward\u0027s End", "oneway": false, "osmid": "3986613", "ref": "B5350", "reversed": "False", "service": null}, "type": "Feature"}, {"bbox": [-1.2080845, 52.7685551, -1.2080366, 52.7686211], "geometry": {"coordinates": [[-1.2080845, 52.7685551], [-1.2080366, 52.7686211]], "type": "LineString"}, "id": "(1941157941, 2841434014, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "unclassified", "lanes": "1", "length": 8.015237954672614, "maxspeed": "20 mph", "name": "Ward\u0027s End", "oneway": false, "osmid": "3986644", "ref": null, "reversed": "False", "service": null}, "type": "Feature"}, {"bbox": [-1.2090059, 52.7686211, -1.2080366, 52.7689321], "geometry": {"coordinates": [[-1.2080366, 52.7686211], [-1.2086509, 52.7688207], [-1.208712, 52.7688406], [-1.2087434, 52.7688501], [-1.2087936, 52.768866], [-1.2090059, 52.7689321]], "type": "LineString"}, "id": "(2841434014, 11014373109, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": "yes", "highway": "[\u0027path\u0027, \u0027unclassified\u0027]", "lanes": null, "length": 73.81600810441432, "maxspeed": null, "name": "New Street", "oneway": false, "osmid": "[4212818, 719703254, 3986614, 719703255]", "ref": null, "reversed": "[False, True]", "service": null}, "type": "Feature"}, {"bbox": [-1.209372, 52.7689321, -1.2090059, 52.7690462], "geometry": {"coordinates": [[-1.2090059, 52.7689321], [-1.209372, 52.7690462]], "type": "LineString"}, "id": "(11014373109, 11014358690, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "path", "lanes": null, "length": 27.705597850105978, "maxspeed": null, "name": null, "oneway": false, "osmid": "719703254", "ref": null, "reversed": "False", "service": null}, "type": "Feature"}, {"bbox": [-1.2094531, 52.7690462, -1.209372, 52.7690715], "geometry": {"coordinates": [[-1.209372, 52.7690462], [-1.2094531, 52.7690715]], "type": "LineString"}, "id": "(11014358690, 24965017, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "path", "lanes": null, "length": 6.138679125883769, "maxspeed": null, "name": null, "oneway": false, "osmid": "719703254", "ref": null, "reversed": "False", "service": null}, "type": "Feature"}, {"bbox": [-1.2095927, 52.7690715, -1.2094531, 52.7691129], "geometry": {"coordinates": [[-1.2094531, 52.7690715], [-1.2095927, 52.7691129]], "type": "LineString"}, "id": "(24965017, 26629400, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": "yes", "highway": "path", "lanes": null, "length": 10.459309348214274, "maxspeed": null, "name": null, "oneway": false, "osmid": "62520006", "ref": null, "reversed": "False", "service": null}, "type": "Feature"}, {"bbox": [-1.2097022, 52.7691129, -1.2095614, 52.7696775], "geometry": {"coordinates": [[-1.2095927, 52.7691129], [-1.2095741, 52.769128], [-1.2095637, 52.7691418], [-1.2095614, 52.7691552], [-1.2095652, 52.7691783], [-1.2095738, 52.7691985], [-1.2095981, 52.7692377], [-1.2096162, 52.7692701], [-1.2096286, 52.7693058], [-1.20963, 52.7693586], [-1.2096222, 52.7694185], [-1.2096241, 52.7694487], [-1.209635, 52.7694713], [-1.2096795, 52.7695241], [-1.2096943, 52.76958], [-1.2097011, 52.7696092], [-1.2097022, 52.7696293], [-1.2096977, 52.7696463], [-1.2096747, 52.7696775]], "type": "LineString"}, "id": "(26629400, 12178312565, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "footway", "lanes": null, "length": 65.33908142871331, "maxspeed": null, "name": null, "oneway": false, "osmid": "4368750", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2096747, 52.7696775, -1.2096457, 52.769712], "geometry": {"coordinates": [[-1.2096747, 52.7696775], [-1.2096457, 52.769712]], "type": "LineString"}, "id": "(12178312565, 12178312564, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "footway", "lanes": null, "length": 4.303835441470244, "maxspeed": null, "name": null, "oneway": false, "osmid": "4368750", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2096457, 52.769712, -1.209616, 52.7698893], "geometry": {"coordinates": [[-1.2096457, 52.769712], [-1.209627, 52.7697499], [-1.2096161, 52.7698069], [-1.209616, 52.7698618], [-1.2096216, 52.7698893]], "type": "LineString"}, "id": "(12178312564, 26629464, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "footway", "lanes": null, "length": 19.964060369899567, "maxspeed": null, "name": null, "oneway": false, "osmid": "4368750", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2096348, 52.7698893, -1.2096216, 52.7699151], "geometry": {"coordinates": [[-1.2096216, 52.7698893], [-1.2096348, 52.7699151]], "type": "LineString"}, "id": "(26629464, 12178312567, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "footway", "lanes": null, "length": 3.003131730016492, "maxspeed": null, "name": null, "oneway": false, "osmid": "4368750", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}, {"bbox": [-1.2098387, 52.7699151, -1.2096348, 52.7700993], "geometry": {"coordinates": [[-1.2096348, 52.7699151], [-1.2096659, 52.7699698], [-1.2097129, 52.7700179], [-1.2097712, 52.770062], [-1.2098387, 52.7700993]], "type": "LineString"}, "id": "(12178312567, 26629458, 0)", "properties": {"__folium_color": "red", "access": null, "bridge": null, "highway": "footway", "lanes": null, "length": 25.07473015356151, "maxspeed": null, "name": null, "oneway": false, "osmid": "4368750", "ref": null, "reversed": "True", "service": null}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["osmid", "highway", "lanes", "name", "oneway", "ref", "reversed", "length", "maxspeed", "bridge", "access", "service"];
+    let aliases = ["osmid", "highway", "lanes", "name", "oneway", "ref", "reversed", "length", "maxspeed", "bridge", "access", "service"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_526ff9b3e14b0d4a6fd8d6e473bcc507.addTo(map_c5f0b1267cc39708470299fd1461363f);
+        
+</script>
+</html>
